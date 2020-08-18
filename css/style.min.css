@@ -55,32 +55,80 @@
 {
 	position: absolute;margin-top: -25%;
 }
+.goldenCircleImage
+{
+	position: absolute;margin-top: -10%;
+}
+.misfitImage
+{
+	position: absolute;margin-top: -15%;margin-left: 50%;
+}
+.aidaImage
+{
+	position: absolute;margin-top: -20%;margin-left: 40%;
+}
+.mediaImage
+{
+	position: absolute;margin-top: -20%;margin-left: 55%;
+}
+.subPageHeaderTopMargin
+{
+	margin-top:-20%;
+}
+.subPageHeaderParagraph
+{
+	color: #000;font-size: 42px;line-height: 1.2;margin-top: -8%;
+}
 @media only screen and (max-width: 768px) {
 	.leftMainParagraph{
     	color: #000;font-size: 22px;line-height: 1.2;width: 100%;
 	}
 	.worldImage
 	{
-		position: absolute; margin-top: 45%;
+		position: absolute; margin-top: 45%;opacity:0.2;
 	}
 	.brandImage
 	{
-		position: absolute;margin-top: 60%;
+		position: absolute;margin-top: 60%;opacity:0.2;
 	}
 	.webDesignImage
 	{
-		position: absolute; margin-top: 50%;
+		position: absolute; margin-top: 50%;opacity:0.2;
 	}  	
 	.socialMediaImage
 	{
-		position: absolute;margin-top: 55%;
+		position: absolute;margin-top: 55%;opacity:0.2;
 	}
 	.aboutUsImage
 	{
-		position: absolute;margin-top: 20%;
+		position: absolute;margin-top: 20%;opacity:0.2;
 	}
 	.contactImage
 	{
-		position: absolute;margin-top: 10%;
+		position: absolute;margin-top: 0%;opacity:0.2;
+	}
+	.goldenCircleImage
+	{
+		position: absolute;margin-top: -10%;opacity:0.2;
+	}
+	.misfitImage
+	{
+		position: absolute;margin-top: -15%;margin-left: 50%;opacity:0.2;
+	}
+	.aidaImage
+	{
+		position: absolute;margin-top: -20%;margin-left: 40%;opacity:0.2;
+	}
+	.mediaImage
+	{
+		position: absolute;margin-top: -20%;margin-left: 55%;opacity:0.2;
+	}
+	.subPageHeaderTopMargin
+	{
+		margin-top:0%;
+	}
+	.subPageHeaderParagraph
+	{
+		color: #000;font-size: 42px;line-height: 1.2;
 	}
 }
