@@ -19,6 +19,9 @@
 .leftMainParagraph{
     color: #000;font-size: 22px;line-height: 1.2;width: 50%;
 }
+.leftContactParagraph{
+    color: #000;font-size: 14px;width: 50%;
+}
 .leftBlackParagraph{
     color: #000;font-size: 22px;line-height: 1.2;
 }
@@ -87,6 +90,9 @@
 @media only screen and (max-width: 768px) {
 	.leftMainParagraph{
     	color: #000;font-size: 22px;line-height: 1.2;width: 100%;
+	}
+	.leftContactParagraph{
+	    color: #000;font-size: 14px;width: 100%;
 	}
 	.worldImage
 	{

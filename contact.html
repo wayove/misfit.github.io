@@ -13,24 +13,60 @@
     <link rel="stylesheet" href="css/styles-merged.css">
     <link rel="stylesheet" href="css/style.min.css">
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="jquery.min.js"></script>
-    <script src="jquery.serialize-object.min.js"></script>
-    <script type="text/javascript">
-      var $form = $('form#contact'),
-      url = 'https://script.google.com/macros/s/AKfycbz6X2EDpDS6J-B8IHRfS7smy3UnrcHpX9ZOABKw_6J-EZCy4rU/exec'
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
 
-      $('#submit').on('click', function(e) {
-        e.preventDefault();
-        var jqxhr = $.ajax({
-          url: url,
-          method: "GET",
-          dataType: "json",
-          data: $form.serializeObject()
-        }).success(
-          // do something
-        );
-      })
+    <script>
+    function postToGoogle() {
+                    var field1 = $("#nameField").val();
+                    var field2 = $("#emailField").val();
+                    var field3 = $("#mobField").val();
+                    var field4 = $("#reasonField option:selected").text();
+                    var field5 = $("#queryField").val();
+            
+            if(field1 == ""){
+              alert('Please Fill Your Name');
+              document.getElementById("nameField").focus();
+              return false;
+            }
+            if(field2 == ""){
+              alert('Please Fill Your Email');
+              document.getElementById("emailField").focus();
+              return false;
+            }
+            if(field3 == "" || field3.length > 9 || field3.length < 9){
+              alert('Please Fill Your Mobile Number');
+              document.getElementById("mobField").focus();
+              return false;
+            }
+            if(field5 == ""){
+              alert('Please enter your brief requirement');
+              document.getElementById("emailField").focus();
+              return false;
+            }
+
+
+            
+      
+                    $.ajax({
+                        url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSft9O7yKUMllDrIcj_-z_d9hJ36x-VNRHmPPOimLxzide4YMA/formResponse?",
+              data: {"entry.175438875": field1, "entry.68905849": field2, "entry.765265183": field3, "entry.1441183677": field4, "entry.1739396808": field5},
+                        type: "POST",
+                        dataType: "xml",
+                        success: function(d)
+              {
+              },
+              error: function(x, y, z)
+                {
+
+                  $('#success-msg').show();
+                  $('#form').hide();
+                  
+                }
+                    });
+            return false;
+                }
     </script>
     <style>
 @font-face {
@@ -102,40 +138,37 @@ p{
 
           <p><div align="left">
             <!-- https://script.google.com/macros/s/AKfycbz6X2EDpDS6J-B8IHRfS7smy3UnrcHpX9ZOABKw_6J-EZCy4rU/exec -->
-                <form id="contact">
-  
-                  <div>
-                    <label>Your Name</label>
-                    <input type="text" name="form_field_name" placeholder="Field 1"/>
-                  </div>
+                
+                
+<h3 id="success-msg"  class="secondary-heading" align="left" style="color: #000;font-size: 15px;line-height: 1.2;display: none;">We have received your request.<br>Someone from MISFIT will contact your soon.<br>Cheers!!!</h3>
+              
+                
+                <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off"> 
+                  <p><div align="left" style="background-color: #ebebeb;padding: 3%;border: #fff; border-radius: 20px;" class="leftContactParagraph">
+                    <h3 class="secondary-heading" style="color: #000;font-size: 15px;line-height: 1.2;">Name</h3>
+                    <input id="nameField" name="entry.175438875" placeholder="Enter your name" type="text" style="padding: 8px;width: 90%; border-radius: 10px;border: #ebebeb;" required> <br>
+                    <h3 class="secondary-heading" style="color: #000;font-size: 15px;line-height: 1.2;">Email</h3>
+                    <input id="emailField" name="entry.68905849" placeholder="hello@thisismisfit.com" type="email" style="padding: 8px;width: 90%; border-radius: 10px;border: #ebebeb;" required> <br>
+                    <h3 class="secondary-heading" style="color: #000;font-size: 15px;line-height: 1.2;">Phone</h3>
+                    <input id="mobField" name="entry.765265183" placeholder="" type="text"  style="padding: 8px;width: 90%; border-radius: 10px;border: #ebebeb;" required> <br> <!-- pattern="^\d{9}$" -->
+                    <h3 class="secondary-heading" style="color: #000;font-size: 15px;line-height: 1.2;">Reason to reach out</h3>
+                    <select id="reasonField" name="entry.1441183677" placeholder="Reason to reach out" style="padding: 8px;width: 90%; border-radius: 10px;border: #ebebeb;" required>
+                      <option value="Branding">Want to hire us for Branding</option>
+                      <option value="Re-branding">Want to hire us for Re-branding</option>
+                      <option value="Digital Marketing">Want to hire us for Digital Marketing</option>
+                      <option value="Website Development">Want to hire us for Website Development</option>
+                      <option value="Others">Have some general queries</option> 
+                    </select> <br>
+                    <h3 class="secondary-heading" style="color: #000;font-size: 15px;line-height: 1.2;">Brief Note</h3>
+                    <textarea id="queryField" name="entry.1739396808" placeholder="" type="text" style="padding: 8px;width: 90%; border-radius: 10px;border: #ebebeb;" required>  </textarea><br><br>
+                    
+                    <!-- <p><div align="left"><a href="javascript:{}" id="send" onclick="document.getElementById('form').submit();"></a></div></p> -->
 
-                  <div>
-                    <label>Your Email</label>
-                    <input type="email" name="form_field_email" placeholder="Field 2"required/>
-                  </div>
-                  
-                  <div>
-                    <label>Your Phone</label>
-                    <input type="text" name="form_field_number" placeholder="Field 3"/>
-                  </div>
-                  
-                  <div>
-                    <label>Purpose</label>
-                    <input type="text" name="form_field_reason" placeholder="Field 4"/>
-                  </div>
-
-                  <div>
-                    <label>Query</label>
-                    <input type="text" name="form_field_query" placeholder="Field 5"/>
-                  </div>
-
-                  <div>
-                    <button type="submit"id="submit">Submit</button>
-                  </div>
-
-              </form>
+                    <button id="send" type="submit" style="border: none;" class="buttonDark" ><b>SUBMIT</b></button>
+                    </div></p>
+                </form>
             
-
+            
 
           </div>
           <div class="col-md-6 col-md-push-1 probootstrap-animate">
