@@ -75,6 +75,11 @@
 {
 	margin-top:-20%;
 }
+.configForMobile
+{
+	margin-top:0%;
+	display: none;
+}
 .subPageHeaderParagraph
 {
 	color: #000;font-size: 42px;line-height: 1.2;margin-top: -8%;
@@ -126,6 +131,11 @@
 	.subPageHeaderTopMargin
 	{
 		margin-top:0%;
+	}
+	.configForMobile
+	{
+		margin-top:0%;
+		display: block;
 	}
 	.subPageHeaderParagraph
 	{
