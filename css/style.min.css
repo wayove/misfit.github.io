@@ -85,7 +85,7 @@
 }
 .subPageHeaderParagraph
 {
-	color: #000;font-size: 42px;line-height: 1.2;margin-top: -8%;
+	color: #000;font-size: 42px;margin-top: -8%;
 }
 @media only screen and (max-width: 768px) {
 	.leftMainParagraph{
@@ -145,6 +145,6 @@
 	}
 	.subPageHeaderParagraph
 	{
-		color: #000;font-size: 42px;line-height: 1.2;
+		color: #000;font-size: 42px;
 	}
 }
